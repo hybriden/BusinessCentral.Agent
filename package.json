@@ -1,0 +1,39 @@
+{
+  "name": "businesscentral.agent",
+  "version": "1.0.0",
+  "description": "MCP server for Microsoft Dynamics 365 Business Central",
+  "main": "build/index.js",
+  "bin": {
+    "bc-agent": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hybriden/BusinessCentral.Agent.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/hybriden/BusinessCentral.Agent/issues"
+  },
+  "homepage": "https://github.com/hybriden/BusinessCentral.Agent#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "fast-xml-parser": "^5.4.1",
+    "open": "^11.0.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}
