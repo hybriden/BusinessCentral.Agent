@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:DataServices>
+    <Schema Namespace="Microsoft.NAV" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="customer">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.Guid" Nullable="false" />
+        <Property Name="number" Type="Edm.String" MaxLength="20" />
+        <Property Name="displayName" Type="Edm.String" MaxLength="100" />
+        <Property Name="email" Type="Edm.String" MaxLength="80" />
+        <Property Name="phoneNumber" Type="Edm.String" MaxLength="30" />
+        <Property Name="balanceDue" Type="Edm.Decimal" />
+        <Property Name="blocked" Type="Edm.String" />
+        <Property Name="lastModifiedDateTime" Type="Edm.DateTimeOffset" />
+        <Property Name="taxLiable" Type="Edm.Boolean" />
+        <NavigationProperty Name="salesOrders" Type="Collection(Microsoft.NAV.salesOrder)" />
+        <NavigationProperty Name="currency" Type="Microsoft.NAV.currency" />
+      </EntityType>
+      <EntityType Name="customApiEntity">
+        <Key>
+          <PropertyRef Name="systemId" />
+        </Key>
+        <Property Name="systemId" Type="Edm.Guid" Nullable="false" />
+        <Property Name="code" Type="Edm.String" MaxLength="20" />
+        <Property Name="description" Type="Edm.String" MaxLength="250" />
+        <Property Name="amount" Type="Edm.Decimal" />
+        <Property Name="quantity" Type="Edm.Int32" />
+        <Property Name="isActive" Type="Edm.Boolean" />
+        <Property Name="createdDate" Type="Edm.Date" />
+      </EntityType>
+      <EntityContainer Name="NAV">
+        <EntitySet Name="customers" EntityType="Microsoft.NAV.customer" />
+        <EntitySet Name="customApiEntities" EntityType="Microsoft.NAV.customApiEntity" />
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
