@@ -1,0 +1,345 @@
+import type { EntityDefinition } from "../entity-types.js";
+
+export const salesCreditMemoEntity: EntityDefinition = {
+  name: "salesCreditMemo",
+  pluralName: "salesCreditMemos",
+  apiPath: "salesCreditMemos",
+  description:
+    "Represents a sales credit memo in Business Central. Sales credit memos are used to reverse or correct sales invoices, issuing credit to customers.",
+  fields: [
+    {
+      name: "id",
+      type: "guid",
+      readOnly: true,
+      description: "The unique identifier for the sales credit memo.",
+    },
+    {
+      name: "number",
+      type: "string",
+      description:
+        "The sales credit memo number. Auto-generated if not specified.",
+      maxLength: 20,
+    },
+    {
+      name: "externalDocumentNumber",
+      type: "string",
+      description: "The external document number.",
+      maxLength: 35,
+    },
+    {
+      name: "creditMemoDate",
+      type: "date",
+      description: "The date of the sales credit memo.",
+    },
+    {
+      name: "postingDate",
+      type: "date",
+      description: "The posting date of the credit memo.",
+    },
+    {
+      name: "dueDate",
+      type: "date",
+      description: "The due date of the credit memo.",
+    },
+    {
+      name: "customerId",
+      type: "guid",
+      description: "The unique identifier of the customer.",
+    },
+    {
+      name: "customerNumber",
+      type: "string",
+      description: "The number of the customer.",
+      maxLength: 20,
+    },
+    {
+      name: "customerName",
+      type: "string",
+      description: "The name of the customer.",
+      maxLength: 100,
+    },
+    {
+      name: "billToName",
+      type: "string",
+      description: "The bill-to name.",
+      maxLength: 100,
+    },
+    {
+      name: "billToCustomerId",
+      type: "guid",
+      description: "The unique identifier of the bill-to customer.",
+    },
+    {
+      name: "billToCustomerNumber",
+      type: "string",
+      description: "The number of the bill-to customer.",
+      maxLength: 20,
+    },
+    {
+      name: "sellToAddressLine1",
+      type: "string",
+      description: "The first line of the sell-to address.",
+      maxLength: 100,
+    },
+    {
+      name: "sellToAddressLine2",
+      type: "string",
+      description: "The second line of the sell-to address.",
+      maxLength: 50,
+    },
+    {
+      name: "sellToCity",
+      type: "string",
+      description: "The city of the sell-to address.",
+      maxLength: 30,
+    },
+    {
+      name: "sellToCountry",
+      type: "string",
+      description: "The country/region code of the sell-to address.",
+      maxLength: 10,
+    },
+    {
+      name: "sellToState",
+      type: "string",
+      description: "The state of the sell-to address.",
+      maxLength: 30,
+    },
+    {
+      name: "sellToPostCode",
+      type: "string",
+      description: "The postal code of the sell-to address.",
+      maxLength: 20,
+    },
+    {
+      name: "billToAddressLine1",
+      type: "string",
+      description: "The first line of the bill-to address.",
+      maxLength: 100,
+    },
+    {
+      name: "billToAddressLine2",
+      type: "string",
+      description: "The second line of the bill-to address.",
+      maxLength: 50,
+    },
+    {
+      name: "billToCity",
+      type: "string",
+      description: "The city of the bill-to address.",
+      maxLength: 30,
+    },
+    {
+      name: "billToCountry",
+      type: "string",
+      description: "The country/region code of the bill-to address.",
+      maxLength: 10,
+    },
+    {
+      name: "billToState",
+      type: "string",
+      description: "The state of the bill-to address.",
+      maxLength: 30,
+    },
+    {
+      name: "billToPostCode",
+      type: "string",
+      description: "The postal code of the bill-to address.",
+      maxLength: 20,
+    },
+    {
+      name: "shortcutDimension1Code",
+      type: "string",
+      description: "The code of the first shortcut dimension.",
+      maxLength: 20,
+    },
+    {
+      name: "shortcutDimension2Code",
+      type: "string",
+      description: "The code of the second shortcut dimension.",
+      maxLength: 20,
+    },
+    {
+      name: "currencyId",
+      type: "guid",
+      description: "The unique identifier of the currency.",
+    },
+    {
+      name: "currencyCode",
+      type: "string",
+      description: "The currency code for the credit memo.",
+      maxLength: 10,
+    },
+    {
+      name: "pricesIncludeTax",
+      type: "boolean",
+      readOnly: true,
+      description: "Whether prices on the credit memo include tax.",
+    },
+    {
+      name: "paymentTermsId",
+      type: "guid",
+      description: "The unique identifier of the payment terms.",
+    },
+    {
+      name: "shipmentMethodId",
+      type: "guid",
+      description: "The unique identifier of the shipment method.",
+    },
+    {
+      name: "salesperson",
+      type: "string",
+      description: "The salesperson code.",
+      maxLength: 20,
+    },
+    {
+      name: "discountAmount",
+      type: "decimal",
+      description: "The invoice discount amount.",
+    },
+    {
+      name: "discountAppliedBeforeTax",
+      type: "boolean",
+      description: "Whether the discount is applied before tax.",
+    },
+    {
+      name: "totalAmountExcludingTax",
+      type: "decimal",
+      readOnly: true,
+      description: "The total amount excluding tax.",
+    },
+    {
+      name: "totalTaxAmount",
+      type: "decimal",
+      readOnly: true,
+      description: "The total tax amount.",
+    },
+    {
+      name: "totalAmountIncludingTax",
+      type: "decimal",
+      readOnly: true,
+      description: "The total amount including tax.",
+    },
+    {
+      name: "status",
+      type: "enum",
+      description: "The status of the sales credit memo.",
+      enumValues: [" ", "Draft", "In Review", "Open", "Paid", "Canceled", "Corrective"],
+    },
+    {
+      name: "invoiceId",
+      type: "guid",
+      description:
+        "The unique identifier of the sales invoice this credit memo corrects.",
+    },
+    {
+      name: "invoiceNumber",
+      type: "string",
+      readOnly: true,
+      description:
+        "The number of the sales invoice this credit memo corrects.",
+      maxLength: 20,
+    },
+    {
+      name: "lastModifiedDateTime",
+      type: "datetime",
+      readOnly: true,
+      description: "The date and time the credit memo was last modified.",
+    },
+    {
+      name: "phoneNumber",
+      type: "string",
+      description: "The phone number associated with the credit memo.",
+      maxLength: 30,
+    },
+    {
+      name: "email",
+      type: "string",
+      description: "The email address associated with the credit memo.",
+      maxLength: 80,
+    },
+  ],
+  navigationProperties: [
+    {
+      name: "customer",
+      targetEntity: "customer",
+      isCollection: false,
+      description: "The customer for the sales credit memo.",
+    },
+    {
+      name: "currency",
+      targetEntity: "currency",
+      isCollection: false,
+      description: "The currency for the sales credit memo.",
+    },
+    {
+      name: "paymentTerm",
+      targetEntity: "paymentTerm",
+      isCollection: false,
+      description: "The payment terms for the sales credit memo.",
+    },
+    {
+      name: "shipmentMethod",
+      targetEntity: "shipmentMethod",
+      isCollection: false,
+      description: "The shipment method for the sales credit memo.",
+    },
+    {
+      name: "salesCreditMemoLines",
+      targetEntity: "salesCreditMemoLine",
+      isCollection: true,
+      description: "The line items of the sales credit memo.",
+    },
+    {
+      name: "dimensionSetLines",
+      targetEntity: "dimensionSetLine",
+      isCollection: true,
+      description: "The dimension set lines for the sales credit memo.",
+    },
+    {
+      name: "pdfDocument",
+      targetEntity: "pdfDocument",
+      isCollection: false,
+      description: "The PDF document for the sales credit memo.",
+    },
+    {
+      name: "attachments",
+      targetEntity: "attachment",
+      isCollection: true,
+      description: "The file attachments for the sales credit memo.",
+    },
+  ],
+  boundActions: [
+    {
+      name: "post",
+      description: "Posts the sales credit memo.",
+      httpMethod: "POST",
+      navPath: "Microsoft.NAV.post",
+    },
+    {
+      name: "postAndSend",
+      description: "Posts the sales credit memo and sends it to the customer.",
+      httpMethod: "POST",
+      navPath: "Microsoft.NAV.postAndSend",
+    },
+    {
+      name: "send",
+      description: "Sends the sales credit memo to the customer via email.",
+      httpMethod: "POST",
+      navPath: "Microsoft.NAV.send",
+    },
+    {
+      name: "cancel",
+      description: "Cancels the posted sales credit memo.",
+      httpMethod: "POST",
+      navPath: "Microsoft.NAV.cancel",
+    },
+    {
+      name: "cancelAndSend",
+      description:
+        "Cancels the posted sales credit memo and sends the cancellation to the customer.",
+      httpMethod: "POST",
+      navPath: "Microsoft.NAV.cancelAndSend",
+    },
+  ],
+};
